@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Charging Navbar</title>
+    <link rel="stylesheet" href="./index.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <img src="./v3-removebg-mePvDnGNgju3r9l8.avif" alt="EV Charging Logo">
+            </a>
+
+            <!-- Navbar Links (Mərkəzdə) -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#">Ana Səhifə</a></li>
+                <li class="dropdown-parent">
+                    <a href="#">Haqqımızda</a>
+                    <div class="dropdown">
+                        <a href="">About Us</a>
+                        <a href="">About Community</a>
+                    </div>
+                </li>
+                <li><a href="#">Xidmətlər</a></li>
+                <li><a href="#">Əlaqə</a></li>
+            </ul>
+
+            <!-- App Store və Google Play Iconları (Sağda) -->
+            <div class="store-icons">
+                <a href="https://www.apple.com/app-store/" target="_blank">
+                    <i class="fab fa-apple"></i>
+                </a>
+                <a href="https://play.google.com/store" target="_blank">
+                    <i class="fab fa-google-play"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Icon (Yalnız mobil üçün) -->
+            <div class="menu-icon" id="menuIcon">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Digər məzmun -->
+    <div class="content">
+        <h1>Səhifənin Əsas Məzmunu</h1>
+        <p>Bu səhifənin əsas məzmun hissəsidir. Navbar artıq səhifənin ən üstündədir.</p>
+    </div>
+    <div class="new_atachment_blok"></div>
+
+    <!-- JavaScript -->
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+    const menuIcon = document.getElementById('menuIcon');
+    const navLinks = document.getElementById('navLinks');
+
+    menuIcon.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+            // Menyu bağlanır
+            navLinks.style.height = '0';
+            navLinks.style.padding = '0 20px';
+            setTimeout(() => {
+                navLinks.classList.remove('active');
+            }, 300); // Animasiya bitdikdən sonra 'active' classını sil
+        } else {
+            // Menyu açılır
+            navLinks.classList.add('active');
+            navLinks.style.height = navLinks.scrollHeight + 'px'; // Hündürlüyü dinamik olaraq təyin et
+            navLinks.style.padding = '20px';
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
